@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="Wiki on Speed is a browser extension that enhances the productivity of your research on Wikipedia, by allowing you to hover over some links to articles of minor subjects, and viewing an excerpt on a hovering box, without opening in a new tab." />
+        <meta name="keywords" content="wiki on speed wikipedia research better productive hover link box excerpt fast mouse browser extension add on firefox chrome safari" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="intro.js"></script>
+    </head>
+    <body>
+
+    <div id="content">
+        <div id="header">
+            <div id="headLogo">
+                <h1 class="headTitle">Wiki on Speed</h1>
+                <h2 class="headTitle">A browser extension that makes your Wikipedia research <b>more prodcutive</b>.</h2>
+            </div>
+            <div id="headNav">
+                <span class="navItem" onclick="easeScrollTo(document.getElementById('features').offsetTop);return false;">Features</span>
+                <span class="navItem" onclick="easeScrollTo(document.getElementById('addTo').offsetTop);return false;">Add to browser</span>
+            </div>
+        </div>
+        <div id="introText">Here's how it works: </div>
+        <div id="intro">
+            <canvas id="back" width="890" height="680"></canvas>
+            <canvas id="cursor" width="19" height="24"></canvas>
+        </div>
+
+        <div id="info">
+            <a id="about"></a>
+            <div class="infoItem blue">
+                <h3>About</h3>
+                <p>
+                <b>Wiki on Speed</b> is a browser extension that enhances the productivity of your research, <br>
+                   and improves your research efforts on <a href="http://www.wikipedia.org/" target="_blank">Wikipedia</a>. <br />
+                </p>
+                <p>
+                When researching in Wikipedia, you often find yourself encountering many 'sub-subjects', loosely related to your main research subject. Usually you would need to open those subject's articles
+                in a new tab and read through them. This extension allows you to read a sum-up of articles - see an excerpt of an article (including the article image), by hovering your mouse pointer over any
+                inter-wiki link (link to a wiki article), <b>without opening in a new tab</b>. Thus maintaining your focus, allowing you to concentrate on the more relevant articles, and not disrupting your reading flow.
+                </p>
+            </div>
+
+            <div class="infoItem blue" id="features">
+                <h3>Features:</h3>
+                <ul>
+                <li><b>Unlimited</b> number of wiki-hover boxes.</li>
+                <li><b>Recursion</b> - you can see hover-boxes from wiki-links within another hover-box.</li>
+                <li>Supports all Wikipedia <b>languages</b> (including RTL).</li>
+                <li>Click anywhere to dismiss all open wiki-hover boxes</li>
+                <li><img alt="Pushed pin icon" src="img/pushedpin.png" /> &nbsp; <b>Pin-down</b> important hover boxes for later. Those won't be closed when you click on the background.</li>
+                <li><img alt="New tab icon" src="img/newtab.png" width="20" /> &nbsp; If you still decide to open article in a new tab, you can do it from the hover-box.</li>
+                <li><span>Change <b>settings</b>, from the extension's options screen, inlcluding the hover-delay time before a box appears, turn on/off recursion and set multi-colors for the hover boxes, <br>
+                    <small>(The options screen is available from the browser's "extension manager"; In Chrome, write "<pre>chrome://extensions</pre>" in the address bar; in Firefox, write "<pre>about:addons</pre>").</small></span>
+                </li>
+                </ul>
+            </div>
+
+            <div class="infoItem blue" id="addTo">
+                <h3>Add to browser:</h3>
+                <div>
+                    <div class="addToBox chrome">Add to Chrome</div>
+                    <div class="addToBox firefox">Add to Firefox</div>
+                </div>
+            </div>
+
+            <div id="license" style="font-size:66%;margin: 14px 0 0 7px;">
+             <b>License: <a href="license.txt">BSD</a></b> <br />
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function easeOut(t)
+        {
+            t /= 25;
+            return (--t) * t * t + 1;
+        }
+
+        function easeScrollTo(to)
+        {
+            var frame = 1,
+            interval = setInterval(function ()
+            {
+                requestAnimationFrame(function ()
+                {
+                    window.scrollTo(0, easeOut(frame) * to);
+                });
+                if (frame == 25) clearInterval(interval)
+                frame++;
+            }, 40);
+
+        }
+    </script>
+
+
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
